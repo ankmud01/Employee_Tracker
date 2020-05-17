@@ -1,0 +1,26 @@
+{
+  "name": "employee_tracker",
+  "version": "1.0.0",
+  "description": "This is an application that will be used for managing a company's employees using node, inquirer, and MySQL.",
+  "main": "index.js",
+  "scripts": {
+    "test": "N/A"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankmud01/Employee_Tracker.git"
+  },
+  "keywords": [
+    "employeeTracker"
+  ],
+  "author": "Ankit Mudvari",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ankmud01/Employee_Tracker/issues"
+  },
+  "homepage": "https://github.com/ankmud01/Employee_Tracker#readme",
+  "dependencies": {
+    "inquirer": "^7.1.0",
+    "mysql": "^2.18.1"
+  }
+}
