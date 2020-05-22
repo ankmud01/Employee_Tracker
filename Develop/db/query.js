@@ -26,7 +26,15 @@ let empbyMgr = "Select e.id AS Employee_ID, CONCAT(e.first_name,\" \",e.last_nam
     empbyMgr += "left join employee e1 ";
     empbyMgr += "on e.manager_id = e1.id";
 
+let viewDept = "Select id, name from Department order by id";
+let addDepartment = "INSERT INTO Department (name) VALUES (?)";
+let removeDepartment = "DELETE FROM department WHERE id = (?)";
+
+
 exports.allEmployeeQuery = allEmployeeQuery;
 exports.empbyDept = empbyDept;
 exports.empbyRole = empbyRole;
 exports.empbyMgr = empbyMgr;
+exports.viewDept = viewDept;
+exports.removeDepartment = removeDepartment;
+exports.addDepartment = addDepartment;

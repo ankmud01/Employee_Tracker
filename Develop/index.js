@@ -4,7 +4,9 @@ const menu = require("./lib/mainMenu")
 // const inquirer = require("inquirer")
 
 async function init() {
-    console.log("Asking Main menu Questions...")
+    console.log(" ")
+    console.log("~~~ MAIN MENU ~~~")
+    console.log(" ")
     try{
         menu.mainQuestion().then(answer => {
             switch(answer.mainMenu){
