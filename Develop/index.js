@@ -1,25 +1,36 @@
-require("dotenv/config");
-const mysql = require("mysql");
-const inquirer = require("inquirer");
+const viewEmp = require("./lib/viewEmp")
+const dept = require("./lib/dept")
+const menu = require("./lib/mainMenu")
+// const inquirer = require("inquirer")
 
+async function init() {
+    console.log("Asking Main menu Questions...")
+    try{
+        menu.mainQuestion().then(answer => {
+            switch(answer.mainMenu){
+                case("View"):
+                    viewEmp.getView();
+                    break;
+                case("Manage Department"):
+                    dept.getDept();
+                    break;
+                case("Manage Roles"):
+                    getRoles();
+                    break;
+                case("Manage Employee"):
+                    getEmployees();
+                    break;
+                default:
+                    console.log("Thank You for using Employee Tracker..");
+                    connection.end();
+                    break;
+            }
+        })
+    }catch(error){
+        console.error(error);
+    }
+}
 
-//Setting SQL Connection
-const connection = mysql.createConnection({
-    host: "localhost",
-    port: "3306",
-    user: "root",
-    password: `${process.env.password}`,
-    database: "officeDb"
-});
+init();
 
-connection.connect(err =>{
-    console.log(`connected to ${connection.threadId}`)
-    if(err) throw err;
-    init(); 
-});
-
-function init(){
-    console.log("Hello Ankit")
-    //This is where I will ask the main question using inquirer
-    //Use switch function to move into different function as per user selection
-};
+exports.init = init; 

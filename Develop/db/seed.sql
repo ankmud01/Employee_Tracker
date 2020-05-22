@@ -49,10 +49,9 @@ on e.manager_id = e1.id;
 /*
 Query to Update employee roles
 */
-UPDATE role_id FROM employee SET role_id as <User_Input> where id = <User_Input>;
+UPDATE role_id SET role_id = "ABC" FROM employee where id = 123;
 
 /*
 Query to update employees managers
 */
-UPDATE role_id FROM employee SET manager_id as <User_Input> where id = <User_Input>;
-
+UPDATE role_id SET manager_id = "ABC" FROM employee  where id = 123;
