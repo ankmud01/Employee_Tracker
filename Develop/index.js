@@ -1,6 +1,8 @@
 const viewEmp = require("./lib/viewEmp")
 const dept = require("./lib/dept")
+const role = require("./lib/role")
 const menu = require("./lib/mainMenu")
+const connection = require("./db/db");
 // const inquirer = require("inquirer")
 
 async function init() {
@@ -17,7 +19,7 @@ async function init() {
                     dept.getDept();
                     break;
                 case("Manage Roles"):
-                    getRoles();
+                    role.getRoles();
                     break;
                 case("Manage Employee"):
                     getEmployees();

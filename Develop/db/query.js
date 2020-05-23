@@ -30,6 +30,20 @@ let viewDept = "Select id, name from Department order by id";
 let addDepartment = "INSERT INTO Department (name) VALUES (?)";
 let removeDepartment = "DELETE FROM department WHERE id = (?)";
 
+let utilizedBudget = "Select d.name AS Department_Name, sum(r.salary) AS Dept_Budget ";
+    utilizedBudget += "from department d, role r, employee e ";
+    utilizedBudget += "where d.id = r.dept_id ";
+    utilizedBudget += "and e.role_id = r.id ";
+    utilizedBudget += "group by d.name ";
+    utilizedBudget += "order by 2 desc";
+
+let viewRoles = "Select r.id AS ROLE_ID, r.title AS ROLE, r.salary AS SALARY, r.dept_id AS Department_Id, d.name AS Department_Name ";
+    viewRoles += "from role r, department d ";
+    viewRoles += "where r.dept_id = d.id ";
+    viewRoles += "order by 1 ";
+
+let addRole = "Insert into role (title, salary, dept_id) Values (?,?,?) ";
+
 
 exports.allEmployeeQuery = allEmployeeQuery;
 exports.empbyDept = empbyDept;
@@ -38,3 +52,6 @@ exports.empbyMgr = empbyMgr;
 exports.viewDept = viewDept;
 exports.removeDepartment = removeDepartment;
 exports.addDepartment = addDepartment;
+exports.utilizedBudget = utilizedBudget;
+exports.viewRoles = viewRoles;
+exports.addRole = addRole; 

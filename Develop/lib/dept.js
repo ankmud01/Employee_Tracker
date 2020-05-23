@@ -35,14 +35,6 @@ const questions = {
                     }
                 }
             }
-        ],
-    removeDepartment:
-        [
-            {
-                type: 'list',
-                name: 'removeDepartment',
-                message: 'Please select a Department to remove'
-            }
         ]
 }
 
@@ -118,11 +110,11 @@ async function removeDept() {
                     }
                 }
             ])
-            .then(answer =>{
+            .then(answer => {
                 const data = (answer.removeDepartment);
                 let dataArr = data.split(" ")
                 const dept2Remove = parseInt(dataArr[0]);
-                
+
                 try {
                     connection.query(myQuery.removeDepartment, dept2Remove, function (err, result) {
                         if (err) throw err;
@@ -135,6 +127,22 @@ async function removeDept() {
                 }
             })
     })
+}
+
+async function deptBudget() {
+    let data = [];
+    try {
+        connection.query(myQuery.utilizedBudget, function (err, result) {
+            result.forEach(res => {
+                data.push([res.Department_Name, res.Dept_Budget])
+            });
+            console.log(" ");
+            console.table(['Department_Name', 'Department_Budget'], data);
+            getDept();
+        })
+    } catch (err) {
+        console.error(err)
+    }
 }
 
 exports.getDept = getDept;
