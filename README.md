@@ -1,15 +1,11 @@
-const fs = require("fs");
-
-function generatereadme(data) {
-    const readmefile =
-        `![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=plastic)
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=plastic)
         <img src="https://img.shields.io/badge/license-MIT-green" alt="License Badge">
 
 # Project-Title: 
-${data.projecttitle}
+Employee Tracker
 
 ## Author: 
-${data.author}
+Ankit Mudvari
 
 ## Table of Contents
 =====================
@@ -23,38 +19,31 @@ ${data.author}
 
 ## Installation
 To install necessary dependencies, run the following command:<br>
-\`\`\`
-${data.installation}
-\`\`\`
+```
+npm install
+```
 
 ## License
-${data.license}
+MIT
 
 ## Usage
-${data.usage}
+This is an application that will be used for managing a company's employees using node, inquirer, and MySQL.
 
 ## Collaborators
-${data.collaborators}
+Ankit Mudvari
 
 ## Test
 To run test, run the following comand:<br>
-\`\`\`
-${data.tests}
-\`\`\`
+```
+N/A
+```
 
 ## Contributing
-${data.contributing}
-
+N/A
 
 ## Questions
 
-<img src="${data.avatar_url}" alt="ME" width="150" height="150"><br>
-if you have any questions about the repo contact me directly at ${data.emailid} thank you.<br>
-If you want to see more of my work please click here ${data.repos}.
-
-`
-        ;
-    return readmefile;
-}
-module.exports = generatereadme;
+<img src="https://avatars0.githubusercontent.com/u/59261007?v=4" alt="ME" width="150" height="150"><br>
+if you have any questions about the repo contact me directly at ankmud01@gmail.com thank you.<br>
+If you want to see more of my work please click here https://api.github.com/users/ankmud01/repos.
 
