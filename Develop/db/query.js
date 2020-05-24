@@ -44,6 +44,10 @@ let viewRoles = "Select r.id AS ROLE_ID, r.title AS ROLE, r.salary AS SALARY, r.
 
 let addRole = "Insert into role (title, salary, dept_id) Values (?,?,?) ";
 
+let updateRoleName = "UPDATE role SET title = ? WHERE id = ?;"
+let updateSalary = "UPDATE role SET salary = ? WHERE id = ?;"
+let reassignDepartment = "UPDATE role SET dept_id = ? WHERE id = ?;"
+let removeRole = "DELETE FROM role WHERE id = (?)";
 
 exports.allEmployeeQuery = allEmployeeQuery;
 exports.empbyDept = empbyDept;
@@ -55,3 +59,7 @@ exports.addDepartment = addDepartment;
 exports.utilizedBudget = utilizedBudget;
 exports.viewRoles = viewRoles;
 exports.addRole = addRole; 
+exports.updateRoleName = updateRoleName;
+exports.updateSalary = updateSalary;
+exports.reassignDepartment = reassignDepartment;
+exports.removeRole = removeRole;
