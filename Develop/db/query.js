@@ -55,6 +55,7 @@ let viewEmpAll ="Select distinct(r.id) AS Role_Id, r.title AS Role, e.manager_id
     viewEmpAll += "on e.manager_id = e1.id";
 
 let addEmp = "Insert into employee (first_name, last_name, role_id, manager_id) Values (?,?,?,?) ";
+let removeEmployee = "DELETE FROM employee WHERE id = (?)";
 
 exports.allEmployeeQuery = allEmployeeQuery;
 exports.empbyDept = empbyDept;
@@ -72,3 +73,4 @@ exports.reassignDepartment = reassignDepartment;
 exports.removeRole = removeRole;
 exports.viewEmpAll = viewEmpAll;
 exports.addEmp = addEmp;
+exports.removeEmployee = removeEmployee;

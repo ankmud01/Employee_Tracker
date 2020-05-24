@@ -117,4 +117,42 @@ async function addEmployee() {
             })
     })
 }
+
+async function removeEmployee() {
+    connection.query(myQuery.allEmployeeQuery, function (err, result) {
+        if (err) throw err
+        inquirer
+            .prompt([
+                {
+                    type: 'list',
+                    name: 'removeEmployee',
+                    message: 'Please select an Employee to remove',
+                    choices: function () {
+                        let choiceArray = []
+                        result.forEach(res => {
+                            choiceArray.push(`${res.Employee_ID} || ${res.Employee_Name}`)
+                        })
+                        return choiceArray;
+                    }
+                }
+            ])
+            .then(answer => {
+                const data = (answer.removeEmployee);
+                let dataArr = data.split(" ")
+                console.log (dataArr);
+                const emp2Remove = parseInt(dataArr[0]);
+
+                try {
+                    connection.query(myQuery.removeEmployee, emp2Remove, function (err, result) {
+                        if (err) throw err;
+                        console.log(`"${dataArr[2]} ${dataArr[3]}" has been successfully Removed from employees list..!!!`)
+                        console.log(" ")
+                        getEmployees();
+                    })
+                } catch (err) {
+                    console.error(err)
+                }
+            })
+    })
+}
 exports.getEmployees = getEmployees;
