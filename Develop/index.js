@@ -1,9 +1,9 @@
-const viewEmp = require("./lib/viewEmp")
-const dept = require("./lib/dept")
-const role = require("./lib/role")
-const menu = require("./lib/mainMenu")
+const viewEmp = require("./lib/viewEmp");
+const dept = require("./lib/dept");
+const role = require("./lib/role");
+const employee = require("./lib/employee");
+const menu = require("./lib/mainMenu");
 const connection = require("./db/db");
-// const inquirer = require("inquirer")
 
 async function init() {
     console.log(" ")
@@ -21,8 +21,8 @@ async function init() {
                 case("Manage Roles"):
                     role.getRoles();
                     break;
-                case("Manage Employee"):
-                    getEmployees();
+                case("Manage Employees"):
+                    employee.getEmployees();
                     break;
                 default:
                     console.log("Thank You for using Employee Tracker..");

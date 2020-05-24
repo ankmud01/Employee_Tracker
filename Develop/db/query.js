@@ -49,6 +49,13 @@ let updateSalary = "UPDATE role SET salary = ? WHERE id = ?;"
 let reassignDepartment = "UPDATE role SET dept_id = ? WHERE id = ?;"
 let removeRole = "DELETE FROM role WHERE id = (?)";
 
+let viewEmpAll ="Select distinct(r.id) AS Role_Id, r.title AS Role, e.manager_id, CONCAT(e1.first_name,\" \",e1.last_name) AS Manager_Name ";
+    viewEmpAll += "From employee e Join role r on e.role_id = r.id ";
+    viewEmpAll += "left join employee e1 ";
+    viewEmpAll += "on e.manager_id = e1.id";
+
+let addEmp = "Insert into employee (first_name, last_name, role_id, manager_id) Values (?,?,?,?) ";
+
 exports.allEmployeeQuery = allEmployeeQuery;
 exports.empbyDept = empbyDept;
 exports.empbyRole = empbyRole;
@@ -63,3 +70,5 @@ exports.updateRoleName = updateRoleName;
 exports.updateSalary = updateSalary;
 exports.reassignDepartment = reassignDepartment;
 exports.removeRole = removeRole;
+exports.viewEmpAll = viewEmpAll;
+exports.addEmp = addEmp;

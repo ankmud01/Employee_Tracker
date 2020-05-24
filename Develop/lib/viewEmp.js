@@ -109,3 +109,4 @@ async function viewEmpbyMgr() {
 }
 
 exports.getView = getView;
+exports.viewEmp = viewEmp;
